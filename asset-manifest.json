@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/chan-le/static/css/main.38b8e566.css",
+    "main.js": "/chan-le/static/js/main.68c572db.js",
+    "index.html": "/chan-le/index.html",
+    "main.38b8e566.css.map": "/chan-le/static/css/main.38b8e566.css.map",
+    "main.68c572db.js.map": "/chan-le/static/js/main.68c572db.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38b8e566.css",
+    "static/js/main.68c572db.js"
+  ]
+}

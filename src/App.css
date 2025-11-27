@@ -1,38 +1,300 @@
-.App {
-  text-align: center;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-size: 200% 200%;
+  animation: gradientMove 10s infinite;
+  font-family: "Poppins", sans-serif;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Hiệu ứng nền */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* GAME WRAPPER */
+.wrapper {
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease;
+}
+
+/* WIN FLASH */
+.win-effect {
+  box-shadow: 0 0 35px #4ade80 !important;
+  border-color: #4ade80 !important;
+}
+
+/* LOSE FLASH + RUNG */
+.lose-effect {
+  animation: shake 0.4s ease;
+  box-shadow: 0 0 35px #ef4444 !important;
+  border-color: #ef4444 !important;
+}
+
+/* KHUNG RUNG */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
   }
-  to {
-    transform: rotate(360deg);
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  60% {
+    transform: translateX(-6px);
+  }
+  80% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* TITLE */
+.title {
+  font-size: 26px;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg, #8b5cf6, #4fc3f7);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+/* STATUS + MONEY */
+.balance,
+.current-bet {
+  font-size: 18px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* TIỀN BAY LÊN - BAY XUỐNG */
+.money-amount.money-up {
+  animation: moneyUp 1s ease;
+  color: #4ade80;
+}
+
+.money-amount.money-down {
+  animation: moneyDown 1s ease;
+  color: #ef4444;
+}
+
+@keyframes moneyUp {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  40% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moneyDown {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  40% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* BET BUTTONS */
+.bet-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 15px 0 20px;
+}
+
+.bet-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.bet-btn.active {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  transform: scale(1.08);
+}
+
+.bet-btn.allin {
+  background: linear-gradient(90deg, #ff0844, #ffb199);
+  font-weight: bold;
+}
+
+/* CHOICE BUTTONS */
+.choice-box {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 22px 0;
+}
+
+.choice-btn {
+  padding: 14px 35px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.choice-btn.active {
+  background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+  transform: scale(1.1);
+}
+
+/* DICE AREA */
+.dice-area {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 20px 0;
+}
+
+.dice {
+  width: 75px;
+  height: 75px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* LẮC XÚC XẮC */
+.dice-shake {
+  animation: diceShake 0.5s ease;
+}
+
+@keyframes diceShake {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    transform: rotate(20deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(-20deg) scale(1.1);
+  }
+  60% {
+    transform: rotate(15deg) scale(1.05);
+  }
+  80% {
+    transform: rotate(-15deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* PLAY BUTTON */
+.play-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  color: #022c1a;
+  transition: 0.25s;
+}
+
+.play-btn:hover {
+  transform: scale(1.05);
+}
+
+/* MESSAGE */
+.message {
+  margin-top: 15px;
+  font-size: 17px;
+}
+
+/* POPUP KẾT QUẢ */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 22px 34px;
+  font-size: 28px;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  animation: popupAnim 1.2s ease forwards;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.popup.win {
+  color: #4ade80;
+}
+
+.popup.lose {
+  color: #ef4444;
+}
+
+@keyframes popupAnim {
+  0% {
+    transform: translate(-50%, -40%);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -65%);
+    opacity: 0;
   }
 }

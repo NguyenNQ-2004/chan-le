@@ -1,23 +1,24 @@
 🎲 Chẵn – Lẻ Xúc Xắc (ReactJS)
 
-Mini game Chẵn – Lẻ xúc xắc xây dựng bằng ReactJS với giao diện Neon Glass UI, hiệu ứng lắc xúc xắc và flash thắng/thua mượt mà.
+Mini game Chẵn – Lẻ được xây dựng bằng ReactJS, mô phỏng hai viên xúc xắc và xác định kết quả dựa trên tổng điểm (chẵn hoặc lẻ).
+Dự án sử dụng phong cách Neon Glass UI, tối ưu cho cả mobile và desktop, mang lại trải nghiệm trực quan – hiện đại – mượt mà.
 
-✨ Tính năng
+🔥 Tính năng chính
 
-Chọn Chẵn / Lẻ
+Chọn Chẵn hoặc Lẻ
 
-Đặt cược: 10 → 500 hoặc ALL-IN
+Đặt cược với nhiều mức hoặc ALL-IN
 
-Xúc xắc random
+Xúc xắc lắc ngẫu nhiên với hiệu ứng mượt
 
 Tự động tính thắng/thua & cập nhật số dư
 
-Hiệu ứng: lắc xúc xắc, flash xanh/đỏ, UI Neon đẹp mắt
+Hiệu ứng neon: lắc xúc xắc, flash thắng/thua, UI glass đẹp mắt
 
-🚀 Chạy dự án
-npm install
-npm start
+🌐 Demo trực tiếp
 
-🛠 Công nghệ
+👉 https://nguyennq-2004.github.io/chan-le/
+
+🛠 Công nghệ sử dụng
 
 ReactJS • JavaScript • CSS Animations • Glassmorphism UI
